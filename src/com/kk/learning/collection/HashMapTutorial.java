@@ -1,9 +1,7 @@
 package com.kk.learning.collection;
 
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
-import java.util.Map.Entry;
+import java.util.HashMap;
 
 class Employee{
 	private int id;
