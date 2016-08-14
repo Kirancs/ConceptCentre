@@ -2,6 +2,8 @@ package com.kk.learning.collection;
 
 import java.util.HashMap;
 
+import org.junit.experimental.theories.Theories;
+
 public class ArraySumProblem {
 
 	public static void main(String[] args) {
@@ -22,6 +24,7 @@ public class ArraySumProblem {
 			for (int j = i; j < size; j++) {
 				if (numbers[i] + numbers[j] == sum && (i != j)) {
 					//System.out.println("( " + numbers[i] + "," + numbers[j] + ")");
+					System.out.println(numbers.length);
 				}
 			}
 		}

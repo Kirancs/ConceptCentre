@@ -4,10 +4,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+
+
 
 class WordFrequency implements Comparable<WordFrequency> {
 
@@ -38,7 +42,8 @@ class MinComparator implements Comparator<WordFrequency> {
 	@Override
 	public int compare(WordFrequency word1, WordFrequency word2) {
 		// TODO Auto-generated method stub
-		return word2.wordFrequency.compareTo(word1.wordFrequency);
+		return word1.wordFrequency.compareTo(word2.wordFrequency);
+		//return word2.wordFrequency.compareTo(word1.wordFrequency);
 	}
 
 }
@@ -53,7 +58,7 @@ public class FileWordFrequency {
 		BufferedReader br = null;
 
 		try {
-			br = new BufferedReader(new FileReader("/Users/KK/Documents/misc/wordProblem.txt"));
+			br = new BufferedReader(new FileReader("/Users/KK/Documents/misc/shakespeare.txt"));
 			String currentLine;
 			String[] wordsOfLine = null;
 
@@ -69,7 +74,7 @@ public class FileWordFrequency {
 
 				}
 
-				System.out.println(wordMap.toString());
+				//System.out.println(wordMap.toString());
 
 			}
 		} catch (FileNotFoundException e) {
@@ -80,9 +85,17 @@ public class FileWordFrequency {
 			}
 		}
 
-		int noOfValuesToPrint =5;
+		int noOfValuesToPrint =2;
+		Instant start1 = Instant.now();
 		printTopValuesFullHeap(noOfValuesToPrint, wordMap);
+		Instant stop1 = Instant.now();
+		
+		Instant start2 = Instant.now();
 		printTopValuesMinHeap(noOfValuesToPrint, wordMap);
+		Instant stop2 = Instant.now();
+		
+		System.out.println("\nTime taken by full heap method "+Duration.between(start1, stop1));
+		System.out.println("Time taken by Min heap method "+Duration.between(start2, stop2));
 
 	}
 
